@@ -1,0 +1,42 @@
+tags:
+  - Transactions
+paths:
+  /transactions:
+    post:
+      summary: Create a new transaction
+      description: Creates a new transaction for the current user.
+
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/NewTransaction"
+      responses:
+        "200":
+          description: Transaction created successfully
+        "400":
+          description: Invalid transaction details
+definitions:
+  NewTransaction:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - Withdraw
+          - Deposit
+          - Transfer
+        description: Type of transaction
+      from_account_id:
+        type: integer
+        description: ID of the account from which to withdraw (for Withdraw and Transfer)
+      to_account_id:
+        type: integer
+        description: ID of the account to which to deposit (for Deposit and Transfer)
+      amount:
+        type: number
+        description: Amount to be transacted
+      description:
+        type: string
+        description: Description of the transaction

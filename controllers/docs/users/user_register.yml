@@ -1,0 +1,29 @@
+tags:
+  - Users
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: User
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+          description: The username of the new user
+        email:
+          type: string
+          description: The email of the new user
+        password:
+          type: string
+          description: The password of the new user
+responses:
+  200:
+    description: Register Success!
+  400:
+    description: Username or Email already exists!
+  500:
+    description: Register Failed!

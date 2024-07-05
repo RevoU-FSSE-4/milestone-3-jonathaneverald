@@ -1,0 +1,35 @@
+tags:
+  - Accounts
+paths:
+  /accounts/{id}:
+    get:
+      summary: Get account by ID
+      description: Returns details of a specific account.
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: ID of the account to retrieve
+      responses:
+        "200":
+          description: A JSON object of the account
+          schema:
+            $ref: "#/definitions/Account"
+        "404":
+          description: Account not found
+definitions:
+  Account:
+    type: object
+    properties:
+      id:
+        type: integer
+      user_id:
+        type: integer
+      account_type:
+        type: string
+      account_number:
+        type: string
+      balance:
+        type: number

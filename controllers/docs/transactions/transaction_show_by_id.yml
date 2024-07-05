@@ -1,0 +1,37 @@
+tags:
+  - Transactions
+paths:
+  /transactions/{id}:
+    get:
+      summary: Get transaction by ID
+      description: Returns details of a specific transaction.
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: ID of the transaction to retrieve
+      responses:
+        "200":
+          description: A JSON object of the transaction
+          schema:
+            $ref: "#/definitions/Transaction"
+        "404":
+          description: Transaction not found
+definitions:
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: integer
+      from_account_id:
+        type: integer
+      to_account_id:
+        type: integer
+      amount:
+        type: number
+      type:
+        type: string
+      description:
+        type: string

@@ -1,0 +1,25 @@
+tags:
+  - Users
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: User
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          description: The email of the user
+        password:
+          type: string
+          description: The password of the user
+responses:
+  200:
+    description: Login Success
+  403:
+    description: User not found or Invalid password
+  500:
+    description: Login Failed

@@ -1,0 +1,32 @@
+tags:
+  - Accounts
+paths:
+  /accounts/{id}:
+    put:
+      summary: Update an existing account
+      description: Updates details of a specific account.
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: ID of the account to update
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateAccount"
+      responses:
+        "200":
+          description: Account updated successfully
+        "403":
+          description: Not authorized to update this account
+        "404":
+          description: Account not found
+definitions:
+  UpdateAccount:
+    type: object
+    properties:
+      account_type:
+        type: string

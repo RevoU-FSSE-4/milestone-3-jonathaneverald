@@ -1,0 +1,36 @@
+tags:
+  - Transactions
+paths:
+  /transactions:
+    get:
+      summary: Get all transactions
+      description: Returns a list of transactions associated with the current user.
+
+      responses:
+        "200":
+          description: A JSON array of transaction objects
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              transactions:
+                type: array
+                items:
+                  $ref: "#/definitions/Transaction"
+definitions:
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: integer
+      from_account_id:
+        type: integer
+      to_account_id:
+        type: integer
+      amount:
+        type: number
+      type:
+        type: string
+      description:
+        type: string

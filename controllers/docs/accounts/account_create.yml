@@ -1,0 +1,29 @@
+tags:
+  - Accounts
+paths:
+  /accounts:
+    post:
+      summary: Create a new account
+      description: Creates a new account for the current user.
+
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/NewAccount"
+      responses:
+        "200":
+          description: Account created successfully
+        "400":
+          description: Account number already exists
+definitions:
+  NewAccount:
+    type: object
+    properties:
+      account_type:
+        type: string
+      account_number:
+        type: string
+      balance:
+        type: number

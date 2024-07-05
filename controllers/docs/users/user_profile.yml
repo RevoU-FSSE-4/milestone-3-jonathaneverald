@@ -1,0 +1,29 @@
+tags:
+  - Users
+summary: Get current user information.
+description: Get username and email of current user
+responses:
+  200:
+    description: Successfully get user information.
+    schema:
+      type: object
+      properties:
+        profile:
+          type: object
+          properties:
+            username:
+              type: string
+              example: jonathan
+            email:
+              type: string
+              example: jonathan@dummy.com
+  401:
+    description: UNAUTHORIZED
+  500:
+    description: Something wrong with the database.
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Cannot connect to the database.

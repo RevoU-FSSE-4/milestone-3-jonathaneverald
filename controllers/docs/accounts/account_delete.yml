@@ -1,0 +1,21 @@
+tags:
+  - Accounts
+paths:
+  /accounts/{id}:
+    delete:
+      summary: Delete an account by ID
+      description: Deletes a specific account.
+
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: ID of the account to delete
+      responses:
+        "200":
+          description: Account deleted successfully
+        "403":
+          description: Not authorized to delete this account
+        "404":
+          description: Account not found
