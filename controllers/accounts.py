@@ -15,8 +15,8 @@ account_routes = Blueprint("account_routes", __name__)
 
 
 @account_routes.route("/accounts", methods=["GET"])
+@login_required
 @swag_from("docs/accounts/account_show.yml")
-# @login_required
 def account_show():
     Session = sessionmaker(connection)
     s = Session()
@@ -57,8 +57,8 @@ def account_show():
 
 
 @account_routes.route("/accounts/<id>", methods=["GET"])
-@swag_from("docs/accounts/account_show_by_id.yml")
 @login_required
+@swag_from("docs/accounts/account_show_by_id.yml")
 def account_show_by_id(id):
     Session = sessionmaker(connection)
     s = Session()
@@ -92,8 +92,8 @@ def account_show_by_id(id):
 
 
 @account_routes.route("/accounts", methods=["POST"])
-@swag_from("docs/accounts/account_create.yml")
 @login_required
+@swag_from("docs/accounts/account_create.yml")
 def account_create():
     Session = sessionmaker(connection)
     s = Session()
@@ -133,8 +133,8 @@ def account_create():
 
 
 @account_routes.route("/accounts/<id>", methods=["PUT"])
-@swag_from("docs/accounts/account_update.yml")
 @login_required
+@swag_from("docs/accounts/account_update.yml")
 def account_update(id):
     Session = sessionmaker(connection)
     s = Session()
@@ -175,8 +175,8 @@ def account_update(id):
 
 
 @account_routes.route("/accounts/<id>", methods=["DELETE"])
-@swag_from("docs/accounts/account_delete.yml")
 @login_required
+@swag_from("docs/accounts/account_delete.yml")
 def account_delete(id):
     Session = sessionmaker(connection)
     s = Session()

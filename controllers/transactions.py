@@ -18,8 +18,8 @@ transaction_routes = Blueprint("transaction_routes", __name__)
 
 
 @transaction_routes.route("/transactions", methods=["GET"])
-@swag_from("docs/transactions/transaction_show.yml")
 @login_required
+@swag_from("docs/transactions/transaction_show.yml")
 def transaction_show():
     Session = sessionmaker(connection)
     s = Session()
@@ -68,8 +68,8 @@ def transaction_show():
 
 
 @transaction_routes.route("/transactions/<id>", methods=["GET"])
-@swag_from("docs/transactions/transaction_show_by_id.yml")
 @login_required
+@swag_from("docs/transactions/transaction_show_by_id.yml")
 def transaction_show_by_id(id):
     Session = sessionmaker(connection)
     s = Session()
@@ -121,8 +121,8 @@ def transaction_show_by_id(id):
 
 
 @transaction_routes.route("/transactions", methods=["POST"])
-@swag_from("docs/transactions/transaction_create.yml")
 @login_required
+@swag_from("docs/transactions/transaction_create.yml")
 def transaction_create():
     Session = sessionmaker(connection)
     s = Session()

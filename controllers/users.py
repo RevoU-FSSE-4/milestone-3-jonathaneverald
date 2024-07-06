@@ -94,8 +94,8 @@ def user_login():
 
 
 @user_routes.route("/users/me", methods=["GET"])
-@swag_from("docs/users/user_profile.yml")
 @login_required
+@swag_from("docs/users/user_profile.yml")
 def user_profile():
     user_profile = current_user.email
     Session = sessionmaker(connection)
@@ -126,8 +126,8 @@ def user_profile():
 
 
 @user_routes.route("/users/me", methods=["PUT"])
-@swag_from("docs/users/user_update_profile.yml")
 @login_required
+@swag_from("docs/users/user_update_profile.yml")
 def user_update_profile():
     user_profile = current_user.email
     Session = sessionmaker(connection)
@@ -181,8 +181,8 @@ def user_update_profile():
 
 
 @user_routes.route("/logout", methods=["GET"])
-@swag_from("docs/users/user_logout.yml")
 @login_required
+@swag_from("docs/users/user_logout.yml")
 def user_logout():
     logout_user()
     return jsonify({"message": "Success logout"})
